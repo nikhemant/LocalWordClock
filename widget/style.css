@@ -1,0 +1,12 @@
+.WordClockWidget {
+    border: 0.1em solid black;
+    border-radius: 0.5em;
+    width: 100%;
+    font-weight: bold;
+}
+
+.WordClockWidget #divTimeInLocal{
+    font-size: xx-large;
+    color: darkblue;
+}
+
