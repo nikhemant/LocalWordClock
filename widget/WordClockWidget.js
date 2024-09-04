@@ -1,5 +1,11 @@
 //server/cdn home path of the widget
-const cdnhome = "./widget/";
+//const cdnhome = "./widget/";
+//console.log(document.currentScript.src);
+
+let l = document.currentScript.src;
+const cdnhome = l.substring(0, l.lastIndexOf("/")+1);
+//console.log(cdnhome);
+
 //WordClockWidget();
 
 function fnToggleEngClock() {
