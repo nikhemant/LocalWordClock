@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>WordClockWidget</title>
+    <style>
+        .WordClockWidget {
+            border: 0.1em solid black;
+            border-radius: 0.5em;
+            width: 100%;
+            font-weight:normal;
+            font-size: small;
+        }
+
+    </style>
+    <script>
+        function getlang(){
+            let params = new URL(document.location.toString()).searchParams;
+            let lang = params.get("lang");
+            console.log(lang);
+            if(lang == null) return "en";
+            else return lang;
+        }
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var tag = document.createElement("script");
+            //tag.src = "https://cdn.jsdelivr.net/gh/nikhemant/RegionalWordClock@main/widget/WordClockWidget.js";
+            tag.src = "./widget/WordClockWidget.js";
+            tag.setAttribute("data-lang", getlang());
+            tag.setAttribute("data-elemid", "MarathiClockWidget");
+            // set data-css="inline" to use the custom defined inline css
+            tag.setAttribute("data-css", "default");
+            document.getElementsByTagName("head")[0].appendChild(tag);     
+        });
+    </script>
+</head>
+
+<body>
+    <h1>WordClockWidget</h1>
+    <div id="MarathiClockWidget"></div>
+</body>
+
+</html>

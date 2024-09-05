@@ -26,7 +26,7 @@ function fnToggleEngClock() {
         //console.log(document.currentScript.dataset.lang); 
         //load config file based on the language instead of direct config file reference in data-config attribute
         try{
-            let result = await fetch(cdnhome + "config-" + lang + ".json");
+            let result = await fetch(cdnhome + "configs/config-" + lang + ".json");
             let config = await result.json();
             return config;
         } catch {
@@ -37,7 +37,7 @@ function fnToggleEngClock() {
 
     async function importStyleFile(css) {
         // let csspath = "http://server/stylesheet.css";
-        console.log(css);
+        //console.log(css);
         if(css!="inline") {
             let csspath = cdnhome + "style.css";
             var newSS = document.createElement('link');
@@ -68,7 +68,7 @@ function fnToggleEngClock() {
         el = document.querySelector(wc);
         el.innerHTML = widgethtml; //config.lang;
 
-        const RegionalNumberToRegionalWord = config.RegionalNumberToRegionalWord;
+        //const RegionalNumberToRegionalWord = config.RegionalNumberToRegionalWord;
         const EnglishNumberToRegionalWord = config.EnglishNumberToRegionalWord;
         const EnglishNumberToRegionalNumber = config.EnglishNumberToRegionalNumber;
         const RegionalTimeLabel = config.RegionalTimeLabel;
@@ -87,7 +87,7 @@ function fnToggleEngClock() {
         const EveningLabel = config.Evening;
         const NightLabel = config.Night;
 
-        const obj1 = (RegionalNumberToRegionalWord);
+        //const obj1 = (RegionalNumberToRegionalWord);
         const obj2 = (EnglishNumberToRegionalWord);      
         const obj3 = (EnglishNumberToRegionalNumber);
 
