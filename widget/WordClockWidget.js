@@ -35,24 +35,28 @@ function fnToggleEngClock() {
         }
     }
 
-    async function importStyleFile() {
+    async function importStyleFile(css) {
         // let csspath = "http://server/stylesheet.css";
-        let csspath = cdnhome + "style.css";
-        var newSS = document.createElement('link');
-        newSS.rel = 'stylesheet';
-        newSS.href = csspath;
-        document.getElementsByTagName("head")[0].appendChild(newSS);
+        console.log(css);
+        if(css!="inline") {
+            let csspath = cdnhome + "style.css";
+            var newSS = document.createElement('link');
+            newSS.rel = 'stylesheet';
+            newSS.href = csspath;
+            document.getElementsByTagName("head")[0].appendChild(newSS);
+        }
     }
     
     
     //get widget class
-    const wc = "." + document.currentScript.dataset.class;
+    const wc = "#" + document.currentScript.dataset.elemid;
+    const csspath = document.currentScript.dataset.css;
     //read the config file corresponding to the language selected
     const config = await getConfig(document.currentScript.dataset.lang);
     //    console.log(config);
-    
+
     async function init() {
-        importStyleFile();
+        importStyleFile(csspath);
         let widgethtml = `
             <div class="WordClockWidget">
                 <div id="divTime" style="display: none;"></div>
